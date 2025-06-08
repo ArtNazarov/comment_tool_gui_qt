@@ -20,4 +20,36 @@ You can write comments to the selected directory. The GUI will call comment_tool
 
 # The console app
 
-[C++ backend tool for commenting](https://github.com/ArtNazarov/comment_tool)
+[C++ backend tool for commenting](https://github.com/ArtNazarov/comment_tool) 
+
+# How to add to KDE6 context menu
+
+Create new file comment_tool_gui_qt.desktop
+
+```
+nano ~/.local/share/kio/servicemenus/comment_tool_gui_qt.desktop
+```
+with the content
+```
+[Desktop Entry]
+Type=Service
+MimeType=inode/directory;
+Actions=open_with_some_app
+X-KDE-StartupNotify=false
+X-KDE-Submenu=Открыть с помощью
+
+[Desktop Action open_with_some_app]
+Name=Comment directory with comment_tool_gui_qt
+Exec=/usr/bin/comment_tool_gui_qt "%f"
+Icon=system-run
+```
+and grant executable permission:
+```
+chmod +x ~/.local/share/kio/servicemenus/comment_tool_gui_qt.desktop
+```
+Reload Dolphin menus
+```
+kbuildsycoca6
+```
+
+Note: comment_tool_gui_qt should be copied to path /usr/bin/comment_tool_gui_qt or available as link
