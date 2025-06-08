@@ -17,3 +17,7 @@ When reading, the first two lines will be discarded as explanations of the conso
 # Saving comments
 
 You can write comments to the selected directory. The GUI will call comment_tool to save comment.
+
+# The console app
+
+[C++ backend tool for commenting](https://github.com/ArtNazarov/comment_tool)
